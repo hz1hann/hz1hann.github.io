@@ -384,7 +384,7 @@ codeblock:
     enable: false
     height: 500
   # Display language name
-  language: false
+  language: true
 
 back2top:
   enable: true
