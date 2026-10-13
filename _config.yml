@@ -54,6 +54,16 @@ prismjs:
   preprocess: true
   line_number: true
   tab_replace: ''
+markdown_it_plus:
+  highlight: false      # 代码块高亮继续由 Hexo 的预处理负责
+  html: true            # 允许内嵌 HTML（保持现状）
+  xhtmlOut: false       # 输出 <br> 而不是 <br />（保持现状）
+  breaks: false         # ★ 关键：单换行不自动变 <br>（默认是 true，必须关）
+  langPrefix: 'language-'
+  linkify: false        # 不把裸网址自动变链接（保持现状）
+  typographer: false    # 不做智能引号替换（保持现状）
+  quotes: '“”‘’'
+  pre_class: highlight
 
 # Home page setting
 # path: Root path for your blogs index page. (default = '')
