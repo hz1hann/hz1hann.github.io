@@ -1,0 +1,18 @@
+<script>
+(function () {
+  function mark() {
+    document.querySelectorAll('.katex-display').forEach(function (el) {
+      if (el.scrollWidth > el.clientWidth + 1) {
+        var box = el.closest('.katex-block');
+        if (box) box.classList.add('kx-overflow');
+      }
+    });
+  }
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', mark);
+  } else {
+    mark();
+  }
+  window.addEventListener('load', mark); // 字体加载后宽度会微调，再校一次
+})();
+</script>

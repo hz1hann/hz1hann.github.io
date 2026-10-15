@@ -47,3 +47,18 @@
   background: rgba(127, 127, 127, .3);
   border-radius: 3px;
 }
+
+// 仅对"真正溢出、可横向滑动"的公式：右缘渐隐提示
+.katex-block.kx-overflow {
+  position: relative;
+}
+.katex-block.kx-overflow::after {
+  background: linear-gradient(to right, transparent, var(--content-bg-color));
+  content: '';
+  pointer-events: none;
+  position: absolute;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  width: 28px;
+}
