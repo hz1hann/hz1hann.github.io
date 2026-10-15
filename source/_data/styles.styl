@@ -27,3 +27,8 @@
   text-transform: lowercase;   /* 顺带把 JSON 显示成 json；去掉这行就是大写 */
   right: 40px
 }
+
+// 图组内打了 no-crop 标记的图片：完整显示，不裁剪
+.group-picture .group-picture-column img.no-crop {
+  object-fit: contain;
+}
