@@ -48,17 +48,38 @@
   border-radius: 3px;
 }
 
-// 仅对"真正溢出、可横向滑动"的公式：右缘渐隐提示
+// 溢出公式的两侧渐隐提示（随滚动状态出现/消失）
 .katex-block.kx-overflow {
   position: relative;
 }
-.katex-block.kx-overflow::after {
-  background: linear-gradient(to right, transparent, var(--content-bg-color));
+.katex-block.kx-overflow::after,
+.katex-block.kx-overflow::before {
   content: '';
   pointer-events: none;
   position: absolute;
-  right: 0;
   top: 0;
   bottom: 0;
   width: 28px;
+  transition: opacity 0.15s ease;
+}
+
+// 右缘：右边还有没看完的内容时显示
+.katex-block.kx-overflow::after {
+  background: linear-gradient(to right, transparent, var(--content-bg-color));
+  right: 0;
+}
+
+// 拖到最右端 → 右缘渐隐淡出
+.katex-block.kx-overflow.kx-at-end::after {
+  opacity: 0;
+}
+
+// 左缘（可选）：已经向右滑过、左边有内容被藏起来时显示
+.katex-block.kx-overflow::before {
+  background: linear-gradient(to left, transparent, var(--content-bg-color));
+  left: 0;
+  opacity: 0;
+}
+.katex-block.kx-overflow:not(.kx-at-start)::before {
+  opacity: 1;
 }

@@ -1,18 +1,36 @@
 <script>
 (function () {
+  function update(el) {
+    var box = el.closest('.katex-block');
+    if (!box) return;
+    if (el.scrollWidth > el.clientWidth + 1) {
+      box.classList.add('kx-overflow');
+    } else {
+      box.classList.remove('kx-overflow', 'kx-at-start', 'kx-at-end');
+      return;
+    }
+    var max = el.scrollWidth - el.clientWidth;
+    // 1px 容差：处理亚像素滚动的边界情况
+    box.classList.toggle('kx-at-start', el.scrollLeft <= 1);
+    box.classList.toggle('kx-at-end', el.scrollLeft >= max - 1);
+  }
+
   function mark() {
     document.querySelectorAll('.katex-display').forEach(function (el) {
-      if (el.scrollWidth > el.clientWidth + 1) {
-        var box = el.closest('.katex-block');
-        if (box) box.classList.add('kx-overflow');
+      if (!el.dataset.kxFadeBound) {
+        el.dataset.kxFadeBound = '1';
+        el.addEventListener('scroll', function () { update(el); }, { passive: true });
       }
+      update(el);
     });
   }
+
   if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', mark);
   } else {
     mark();
   }
-  window.addEventListener('load', mark); // 字体加载后宽度会微调，再校一次
+  window.addEventListener('load', mark);   // 字体加载后宽度会变，重算一次
+  window.addEventListener('resize', mark); // 横竖屏切换等
 })();
 </script>
