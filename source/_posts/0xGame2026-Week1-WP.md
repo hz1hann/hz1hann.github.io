@@ -13,7 +13,7 @@ tags:
 categories: CTF
 ---
 
-本文是0xGame2026的WriteUp
+本文是0xGame2026第一周的WriteUp
 
 <!-- more -->
 
