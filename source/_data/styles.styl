@@ -86,6 +86,9 @@
 
 // 只对"紧跟在 .wrap-next 标记后面"的那一个代码块启用换行
 .wrap-next + figure.highlight {
+  table {
+    width: 100%;        // ← 关键：表格严格等于外层宽度，折行宽度=可见宽度
+  }
   .code pre,
   .line {
     white-space: pre-wrap;
