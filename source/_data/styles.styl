@@ -87,12 +87,19 @@
 // 只对"紧跟在 .wrap-next 标记后面"的那一个代码块启用换行
 .wrap-next + figure.highlight {
   table {
-    width: 100%;        // ← 关键：表格严格等于外层宽度，折行宽度=可见宽度
+    table-layout: fixed;   // 列宽不再参考内容，严格按容器分配
+    width: 100%;
   }
+
+  td.gutter {
+    width: 3.6em;          // 行号列定宽（行号到三位数以上就调大到 4.2em、5em）
+  }
+
   .code pre,
   .line {
     white-space: pre-wrap;
     overflow-wrap: anywhere;
     word-break: break-word;
+    box-sizing: border-box; // 把 pre 的左内边距算进宽度，杜绝 10px 级溢出
   }
 }
