@@ -69,6 +69,8 @@ categories: CTF
 
 开启容器，进入题给地址。注意到每一篇博客文章有一个碎片，遂手动收集。~~（因为不会写脚本）~~得到字符串：
 
+<div class="wrap-next"></div>
+
 ```text
 H4sIAAAAAAAA/wTAwQ2AMAgF0JXaADM4xo9BbQ+UA0GrMe7uK/eyjv11rpNhfLYu0OBpAvYNWsxIU0AXxYMjuA3yBGsUEWQnVE8Kp/z+AAAA//+XJ0P/SwAAAA==
 ```
@@ -117,6 +119,8 @@ PS：第一次手动提取把O看成0了还以为是题目出问题了😅
 ```
 
 下半部分即为secret.zip，将其Hex单独提取出来：
+
+<div class="wrap-next"></div>
 
 ```hex
 50 4b 03 04 14 00 00 00 08 00 ed b1 3b 5d 68 59 37 41 36 00 00 00 34 00 00 00 0a 00 00 00 73 65 63 72 65 74 2e 74 78 74 f3 f5 c8 f0 88 0c 37 cc 49 35 0e aa 0c 74 8f ca f5 0d f7 4b 8b 0c 37 cd f0 8d c8 36 4c 8c f0 4b 4b 0c 09 4b 8b ca 09 2b 8d 30 4a 37 f6 33 76 cc 48 0b b4 b5 05 00 50 4b 01 02 14 00 14 00 00 00 08 00 ed b1 3b 5d 68 59 37 41 36 00 00 00 34 00 00 00 0a 00 00 00 00 00 00 00 00 00 00 00 80 01 00 00 00 00 73 65 63 72 65 74 2e 74 78 74 50 4b 05 06 00 00 00 00 01 00 01 00 38 00 00 00 5e 00 00 00 00 00
