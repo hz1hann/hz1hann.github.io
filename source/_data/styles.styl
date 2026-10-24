@@ -83,3 +83,13 @@
 .katex-block.kx-overflow:not(.kx-at-start)::before {
   opacity: 1;
 }
+
+// 只对"紧跟在 .wrap-next 标记后面"的那一个代码块启用换行
+.wrap-next + figure.highlight {
+  .code pre,
+  .line {
+    white-space: pre-wrap;
+    overflow-wrap: anywhere;
+    word-break: break-word;
+  }
+}
